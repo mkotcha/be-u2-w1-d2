@@ -2,12 +2,11 @@ package com.emmek.menu.entities;
 
 import com.emmek.menu.decorator.Consumation;
 import com.emmek.menu.decorator.ExtraAddictionDecorator;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+
 public class Menu {
     public List<Consumation> pizzas = new ArrayList<>();
     public List<Drink> drinks = new ArrayList<>();

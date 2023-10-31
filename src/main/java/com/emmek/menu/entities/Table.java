@@ -1,12 +1,11 @@
 package com.emmek.menu.entities;
 
+import lombok.Data;
 import lombok.Getter;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
-@Component
-@Scope("prototype")
+
 @Getter
+@Data
 public class Table {
     private final int seats;
     private final int tableNumber;

@@ -4,19 +4,30 @@ import com.emmek.menu.decorator.*;
 import com.emmek.menu.entities.AlcoholicDrink;
 import com.emmek.menu.entities.Drink;
 import com.emmek.menu.entities.Menu;
+import com.emmek.menu.entities.Table;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
 import java.util.List;
+import java.util.Random;
 
-//@Configuration
+@Configuration
 public class BeansConfiguration {
+
+    private int tableNumber = 1;
 
     @Bean
     public Consumation getPizzaXl() {
         return new PizzaMargheritaXl();
     }
 
+    @Bean
+    Table getTable() {
+        Random random = new Random();
+        return new Table(tableNumber++, random.nextInt(10) + 2);
+    }
+    
     @Bean
     @Primary
     Menu getMenu() {

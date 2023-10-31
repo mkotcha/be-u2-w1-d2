@@ -2,6 +2,7 @@ package com.emmek.menu.decorator;
 
 import lombok.Getter;
 
+
 @Getter
 public abstract class Consumation {
 

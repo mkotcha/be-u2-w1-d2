@@ -1,9 +1,13 @@
 package com.emmek.menu.decorator;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
 public class ExtraAnanasDecorator extends ExtraAddictionDecorator {
 
 
-    public ExtraAnanasDecorator(Consumation consumation) {
+    public ExtraAnanasDecorator(@Qualifier("pizzaMargherita") Consumation consumation) {
         this.consumation = consumation;
         isXl = consumation.isXl;
     }
