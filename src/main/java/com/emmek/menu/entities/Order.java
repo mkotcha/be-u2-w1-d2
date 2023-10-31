@@ -15,9 +15,9 @@ public class Order {
     Menu menu;
     Table table;
     int orderNumber;
-    OrderState orderState;
+    OrderState orderState = OrderState.READY;
     int seats;
-    LocalTime orderTime;
+    LocalTime orderTime = LocalTime.now();
     @Value("${order.seat}")
     double seatPrice;
 
@@ -26,6 +26,20 @@ public class Order {
         table.setAvailable(false);
         this.table = table;
         seats = random.nextInt(table.getSeats()) + 1;
+    }
+
+    public double getPrice() {
+        return menu.getPrice() + seats * seatPrice;
+    }
+
+    public void printOrder() {
+        System.out.println("Order number: " + orderNumber);
+        System.out.println("Table number: " + table.getTableNumber());
+        System.out.println("Seats: " + seats);
+        System.out.println("Order time: " + orderTime);
+        System.out.println("Order state: " + orderState);
+        System.out.println("Order price: " + getPrice());
+        System.out.println();
     }
 
 }

@@ -49,4 +49,15 @@ public class Menu {
         System.out.println("\n drinks:\n");
         drinks.forEach(System.out::println);
     }
+
+    public double getPrice() {
+        double totalPrice = 0;
+        for (Consumation pizza : pizzas) {
+            totalPrice += pizza.getPrice();
+        }
+        for (Drink drink : drinks) {
+            totalPrice += drink.getPrice();
+        }
+        return totalPrice;
+    }
 }

@@ -2,6 +2,7 @@ package com.emmek.menu.utils;
 
 import com.emmek.menu.MenuApplication;
 import com.emmek.menu.decorator.*;
+import com.emmek.menu.entities.Drink;
 import com.emmek.menu.entities.Menu;
 import com.emmek.menu.entities.Order;
 import com.emmek.menu.entities.Table;
@@ -23,13 +24,19 @@ public class Runner implements CommandLineRunner {
         menu.printMenu();
 
 
-        Order order = context.getBean(Order.class);
-        order.setTable(context.getBean(Table.class));
-        System.out.println(order);
-
         Consumation pizza4 = context.getBean(PizzaMargherita.class);
         Consumation pizza5 = context.getBean(PizzaMargherita.class);
 
+        Menu menu2 = new Menu(List.of(pizza4, pizza5),
+                List.of(new Drink("Coca Cola", 0.25, 2),
+                        new Drink("Fanta", 0.33, 2.5)),
+                List.of());
+
+
+        Order order = context.getBean(Order.class);
+        order.setTable(context.getBean(Table.class));
+        order.setMenu(menu2);
+        order.printOrder();
     }
 
 
