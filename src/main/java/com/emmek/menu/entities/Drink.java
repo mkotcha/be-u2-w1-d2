@@ -1,8 +1,11 @@
 package com.emmek.menu.entities;
 
+import lombok.Getter;
+
 public class Drink {
     String productName;
     double capacity;
+    @Getter
     double price;
 
     public Drink(String productName, double capacity, double price) {
@@ -16,4 +19,5 @@ public class Drink {
         return productName + " ( " + capacity + " ) " +
                 " - " + String.format("%.2f", price) + "€\n";
     }
+
 }

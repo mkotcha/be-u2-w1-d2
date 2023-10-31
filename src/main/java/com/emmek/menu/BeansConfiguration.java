@@ -5,12 +5,11 @@ import com.emmek.menu.entities.AlcoholicDrink;
 import com.emmek.menu.entities.Drink;
 import com.emmek.menu.entities.Menu;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
 import java.util.List;
 
-@Configuration
+//@Configuration
 public class BeansConfiguration {
 
     @Bean
