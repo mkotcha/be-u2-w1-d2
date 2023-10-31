@@ -15,7 +15,7 @@ import java.util.Random;
 @Configuration
 public class BeansConfiguration {
 
-    private int tableNumber = 1;
+    private static int tableNumber = 1;
 
     @Bean
     public Consumation getPizzaXl() {
@@ -27,7 +27,7 @@ public class BeansConfiguration {
         Random random = new Random();
         return new Table(tableNumber++, random.nextInt(10) + 2);
     }
-    
+
     @Bean
     @Primary
     Menu getMenu() {

@@ -23,7 +23,7 @@ public class Runner implements CommandLineRunner {
         Menu menu = context.getBean(Menu.class);
         menu.printMenu();
 
-
+        Consumation pizza1 = context.getBean(ExtraSalameDecorator.class);
         Consumation pizza4 = context.getBean(PizzaMargherita.class);
         Consumation pizza5 = context.getBean(PizzaMargherita.class);
 
@@ -32,13 +32,21 @@ public class Runner implements CommandLineRunner {
                         new Drink("Fanta", 0.33, 2.5)),
                 List.of());
 
+        fakeOrder(menu2);
+        List<Consumation> pizzas = List.of(pizza1, pizza4, pizza5);
 
-        Order order = context.getBean(Order.class);
-        order.setTable(context.getBean(Table.class));
-        order.setMenu(menu2);
-        order.printOrder();
+        menu2.setPizzas(pizzas);
+        fakeOrder(menu2);
     }
 
+
+    public void fakeOrder(Menu menu) {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MenuApplication.class);
+        Order order = context.getBean(Order.class);
+        order.setTable(context.getBean("getTable", Table.class));
+        order.setMenu(menu);
+        order.printOrder();
+    }
 
     public void old() {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MenuApplication.class);

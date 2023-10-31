@@ -2,11 +2,14 @@ package com.emmek.menu.entities;
 
 import com.emmek.menu.decorator.Consumation;
 import com.emmek.menu.decorator.ExtraAddictionDecorator;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Getter
+@Setter
 public class Menu {
     public List<Consumation> pizzas = new ArrayList<>();
     public List<Drink> drinks = new ArrayList<>();
@@ -19,22 +22,12 @@ public class Menu {
     }
 
     public void addPizza(Consumation pizza) {
+        System.out.println("\n error\n" + pizza.toString());
         pizzas.add(pizza);
     }
 
     public void addDrink(Drink drink) {
         drinks.add(drink);
-    }
-
-    public double getTotalPrice() {
-        double totalPrice = 0;
-        for (Consumation pizza : pizzas) {
-            totalPrice += pizza.getPrice();
-        }
-        for (Drink drink : drinks) {
-            totalPrice += drink.getPrice();
-        }
-        return totalPrice;
     }
 
     public void printMenu() {
